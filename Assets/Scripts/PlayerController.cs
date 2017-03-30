@@ -94,6 +94,8 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 	void Jump(float speed){
+		//Jumps, also returns the fact that we no longer can jump
+		rb2D.velocity = new Vector2(rb2D.velocity.x, 0);
 		rb2D.AddForce (new Vector2 (0f, speed), ForceMode2D.Impulse);
 		isJump = false;
 		grounded = false;

@@ -32,8 +32,11 @@ public class PlayerController : MonoBehaviour {
 
 	//Animation stuff
 	bool isWalk;
-	bool grounded;
+	bool isJump = false;
+	bool grounded = false;
 	bool inverted = false;
+	bool inverting = false;
+	float invertTimer = 0f;
 
 	// Use this for initialization
 	void Awake () {
@@ -42,16 +45,15 @@ public class PlayerController : MonoBehaviour {
 
 		walkHash = Animator.StringToHash ("isWalk");
 		gravities = GameObject.FindGameObjectsWithTag ("Gravity");
-		limbs = GameObject.FindGameObjectsWithTag ("Limbs");
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown (invertkey))
-			Invert (0.5f);
-		if (Input.GetButton(jumpkey) && grounded)
-			Jump (20f);
-
+		if (Input.GetButtonDown (invertkey)){
+			inverting = true;
+		}
+		if (Input.GetButton (jumpkey) && grounded)
+			isJump = true;
 	}
 
 	void FixedUpdate(){
@@ -59,6 +61,13 @@ public class PlayerController : MonoBehaviour {
 		animator.SetFloat ("WalkSpeed", moveX);
 
 		Walk (velocity * moveX);
+
+		if (isJump) {
+			Jump (jumpHeight);
+		}
+		if (inverting) {
+			Invert (0.5f);
+		}
 	}
 
 	void Invert(float speed){
@@ -67,17 +76,35 @@ public class PlayerController : MonoBehaviour {
 		foreach (GameObject grav in gravities) {
 			GameObject obj = grav.transform.parent.gameObject;
 			Rigidbody2D objrb2d = obj.GetComponent<Rigidbody2D> ();
-			objrb2d.MoveRotation (Mathf.Lerp (objrb2d.rotation, objrb2d.rotation + 180, speed));
+			objrb2d.constraints = RigidbodyConstraints2D.FreezePositionX;
+			objrb2d.MoveRotation (180);
 			objrb2d.gravityScale *= -1;
 
 		}
 
 	}
-	void Jump(float speed){
-		rb2D.AddForce (new Vector2 (0, speed));
+
+	void InvertEnd(){
+		//checks if inversion is now over and then unlocks everything if so
+		foreach (GameObject grav in gravities) {
+			GameObject obj = grav.transform.parent.gameObject;
+			Rigidbody2D objrb2d = obj.GetComponent<Rigidbody2D> ();
+				objrb2d.constraints = RigidbodyConstraints2D.None;
+		}
 	}
+	void Jump(float speed){
+		rb2D.AddForce (new Vector2 (0f, speed));
+		isJump = false;
+		grounded = false;
+	}
+
 
 	void Walk(float speed){
 		rb2D.velocity = new Vector2(speed, rb2D.velocity.y);
+	}
+
+	void OnCollisionEnter2D(Collision2D collider){
+		if (collider.gameObject.CompareTag("Floor"))
+			grounded=true;
 	}
 }

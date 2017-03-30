@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
 	Animator animator;
 	float moveX;
 	GameObject[] gravities;
+	GameObject[] limbs;
 
 	//publicly editable stuff :)
 	[SerializeField]
@@ -31,7 +32,7 @@ public class PlayerController : MonoBehaviour {
 
 	//Animation stuff
 	bool isWalk;
-	bool notInverting = true;
+	bool inverted = false;
 
 	// Use this for initialization
 	void Awake () {
@@ -40,23 +41,27 @@ public class PlayerController : MonoBehaviour {
 
 		walkHash = Animator.StringToHash ("isWalk");
 		gravities = GameObject.FindGameObjectsWithTag ("Gravity");
+		limbs = GameObject.FindGameObjectsWithTag ("Limbs");
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButton (invertkey) && notInverting)
+		if (Input.GetButtonDown (invertkey))
 			Invert (0.5f);
+		if (Input.GetButton(jumpkey))
+			Jump (20f);
 
 	}
 
 	void FixedUpdate(){
 		moveX = Input.GetAxis (xaxis);
-		animator.SetFloat ("Speed", Mathf.Abs (moveX));
+		animator.SetFloat ("WalkSpeed", moveX);
+		animator.angularVelocity = (new Vector2 (20, 30));
 
 	}
 
 	void Invert(float speed){
-		notInverting = false;
+		inverted = !inverted;
 		//when called, flips all objects with a child with tag "Gravity"
 		foreach (GameObject grav in gravities) {
 			GameObject obj = grav.transform.parent.gameObject;
@@ -65,7 +70,13 @@ public class PlayerController : MonoBehaviour {
 			objrb2d.gravityScale *= -1;
 
 		}
-		notInverting = true;
+
+	}
+	void Jump(float speed){
+		foreach (GameObject limb in limbs) {
+			Debug.Log (limb.ToString ());
+			limb.transform.localPosition += transform.forward * speed;
+		}
 	}
 		
 }

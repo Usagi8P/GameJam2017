@@ -1,18 +1,14 @@
 fileFormatVersion: 2
 guid: 13f048b6d4b86834481c03e16c1d5887
-<<<<<<< HEAD
-timeCreated: 1490896803
-=======
-timeCreated: 1490900295
->>>>>>> master
+timeCreated: 1490909556
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Boxes_Floor
-    21300002: Boxes_Death_Grav
-    21300004: Boxes_Bolted
-    21300006: Boxes_Death_Bolted
-    21300008: Boxes_Grav
+    21300000: Boxes_Gav
+    21300002: Floor
+    21300004: Boxes_Death_Grav
+    21300006: Boxes_Bolted
+    21300008: Boxes_Death_Bolted
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -79,12 +75,25 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boxes_Floor
+      name: Boxes_Gav
       rect:
         serializedVersion: 2
-        x: 4
+        x: 51
         y: 250
-        width: 47
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Floor
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 250
+        width: 46
         height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -122,19 +131,6 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 206
-        y: 250
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Boxes_Grav
-      rect:
-        serializedVersion: 2
-        x: 51
         y: 250
         width: 50
         height: 50

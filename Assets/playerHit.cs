@@ -13,8 +13,8 @@ public class playerHit : MonoBehaviour {
 		death = GetComponent<Animation> ();
 	}
 
-	void OnCollision(Collider2D collision){
-		if (collision.CompareTag ("Bad"))
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.gameObject.CompareTag ("Bad"))
 			Death ();
 			
 	}
@@ -23,7 +23,7 @@ public class playerHit : MonoBehaviour {
 	void Update () {
 		if(isDead)
 		{
-			CharacterController cc = GetComponent<CharacterController>();
+			PlayerController cc = GetComponent<PlayerController>();
 			cc.enabled = false; 
 			if (!death.isPlaying) { //once anims stopped
 				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -33,6 +33,7 @@ public class playerHit : MonoBehaviour {
 	}
 
 	void Death(){
+		Debug.Log ("im dead");
 		anim.SetTrigger ("isDead");
 		isDead = true;
 			

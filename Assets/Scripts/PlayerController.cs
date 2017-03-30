@@ -56,7 +56,6 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate(){
 		moveX = Input.GetAxis (xaxis);
 		animator.SetFloat ("WalkSpeed", moveX);
-		animator.angularVelocity = (new Vector2 (20, 30));
 
 	}
 

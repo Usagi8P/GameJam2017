@@ -26,7 +26,7 @@ public class playerHit : MonoBehaviour {
 			CharacterController cc = GetComponent<CharacterController>();
 			cc.enabled = false; 
 			if (!death.isPlaying) { //once anims stopped
-				SceneManager.LoadScene(SceneManager.GetActiveScene());
+				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 			}
 		}
 

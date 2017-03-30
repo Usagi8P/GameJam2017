@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour {
 	public bool grounded = false;
 	bool inverted = false;
 	bool inverting = false;
+	bool imInvert = false;
 	float invertTimer = 0f;
 
 	// Use this for initialization
@@ -52,11 +53,12 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		gravities = GameObject.FindGameObjectsWithTag ("Gravity");
-		if (Input.GetButtonDown (invertkey)){
+		if (Input.GetButtonDown (invertkey) && invertTimer < maxInvertTimer){
 			inverting = true;
 		}
 		if (Input.GetButton (jumpkey) && grounded)
 			isJump = true;
+
 	}
 
 	void FixedUpdate(){
@@ -71,6 +73,7 @@ public class PlayerController : MonoBehaviour {
 		if (inverting) {
 			Invert (0.5f);
 		}
+
 	}
 
 	void Invert(float speed){

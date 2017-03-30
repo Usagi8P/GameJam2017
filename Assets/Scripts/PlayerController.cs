@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour {
 	string invertkey = "invert_K";
 	[SerializeField]
 	string walkString = "isWalk";
-
+	[SerializeField]
+	float maxInvertTimer = 5;
 
 	//OPTIMIZATION :-)
 	int walkHash;
@@ -45,11 +46,12 @@ public class PlayerController : MonoBehaviour {
 		animator = GetComponent<Animator> ();
 
 		walkHash = Animator.StringToHash ("isWalk");
-		gravities = GameObject.FindGameObjectsWithTag ("Gravity");
+
 	}
 
 	// Update is called once per frame
 	void Update () {
+		gravities = GameObject.FindGameObjectsWithTag ("Gravity");
 		if (Input.GetButtonDown (invertkey)){
 			inverting = true;
 		}
@@ -77,22 +79,27 @@ public class PlayerController : MonoBehaviour {
 		foreach (GameObject grav in gravities) {
 			GameObject obj = grav.transform.parent.gameObject;
 			Rigidbody2D objrb2d = obj.GetComponent<Rigidbody2D> ();
-			objrb2d.constraints = RigidbodyConstraints2D.FreezePositionX;
-			objrb2d.MoveRotation (180);
+			if (inverted)
+				objrb2d.MoveRotation (0);
+			else
+				objrb2d.MoveRotation (180);
 			objrb2d.gravityScale *= -1;
 
 		}
+		inverting = false;
 
 	}
 
-	void InvertEnd(){
+	/*void InvertEnd(){
 		//checks if inversion is now over and then unlocks everything if so
 		foreach (GameObject grav in gravities) {
 			GameObject obj = grav.transform.parent.gameObject;
 			Rigidbody2D objrb2d = obj.GetComponent<Rigidbody2D> ();
+			if (objrb2d.
 				objrb2d.constraints = RigidbodyConstraints2D.None;
 		}
-	}
+		inverting = false;
+	}*/
 	void Jump(float speed){
 		//Jumps, also returns the fact that we no longer can jump
 		rb2D.velocity = new Vector2(rb2D.velocity.x, 0);

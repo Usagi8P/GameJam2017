@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour {
 
 	//Animation stuff
 	bool isWalk;
+	bool grounded;
 	bool inverted = false;
 
 	// Use this for initialization
@@ -48,7 +49,7 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 		if (Input.GetButtonDown (invertkey))
 			Invert (0.5f);
-		if (Input.GetButton(jumpkey))
+		if (Input.GetButton(jumpkey) && grounded)
 			Jump (20f);
 
 	}
@@ -57,6 +58,7 @@ public class PlayerController : MonoBehaviour {
 		moveX = Input.GetAxis (xaxis);
 		animator.SetFloat ("WalkSpeed", moveX);
 
+		Walk (velocity * moveX);
 	}
 
 	void Invert(float speed){
@@ -65,17 +67,17 @@ public class PlayerController : MonoBehaviour {
 		foreach (GameObject grav in gravities) {
 			GameObject obj = grav.transform.parent.gameObject;
 			Rigidbody2D objrb2d = obj.GetComponent<Rigidbody2D> ();
-			objrb2d.MoveRotation (Mathf.Lerp(objrb2d.rotation, objrb2d.rotation + 180, speed));
+			objrb2d.MoveRotation (Mathf.Lerp (objrb2d.rotation, objrb2d.rotation + 180, speed));
 			objrb2d.gravityScale *= -1;
 
 		}
 
 	}
 	void Jump(float speed){
-		foreach (GameObject limb in limbs) {
-			Debug.Log (limb.ToString ());
-			limb.transform.localPosition += transform.forward * speed;
-		}
+		rb2D.AddForce (new Vector2 (0, speed));
 	}
-		
+
+	void Walk(float speed){
+		rb2D.velocity = new Vector2(speed, rb2D.velocity.y);
+	}
 }

@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour {
 
 	//Animation stuff
 	bool isWalk;
-	bool invert;
+	bool notInverting = true;
 
 	// Use this for initialization
 	void Awake () {
@@ -44,8 +44,8 @@ public class PlayerController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButton (invertkey))
-			Invert (200);
+		if (Input.GetButton (invertkey) && notInverting)
+			Invert (0.5f);
 
 	}
 
@@ -56,12 +56,16 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Invert(float speed){
+		notInverting = false;
 		//when called, flips all objects with a child with tag "Gravity"
 		foreach (GameObject grav in gravities) {
 			GameObject obj = grav.transform.parent.gameObject;
 			Rigidbody2D objrb2d = obj.GetComponent<Rigidbody2D> ();
-			objrb2d.gravityScale *= -1;
 			objrb2d.MoveRotation (Mathf.Lerp(objrb2d.rotation, objrb2d.rotation + 180, speed));
+			objrb2d.gravityScale *= -1;
+
 		}
+		notInverting = true;
 	}
+		
 }

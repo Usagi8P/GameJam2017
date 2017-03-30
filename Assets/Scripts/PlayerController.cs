@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 	Rigidbody2D rb2D;
 	Animator animator;
 	float moveX;
+	GameObject[] gravities;
 
 	//publicly editable stuff :)
 	[SerializeField]
@@ -13,40 +14,54 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	float jumpHeight = 5.0f;
 	[SerializeField]
-	string xaxis = "horizontal_K1";
+	string xaxis = "horizontal_K";
 	[SerializeField]
-	string jump = "jump_K1";
+	string jumpkey = "jump_K";
 	[SerializeField]
-	string walkString = "colguywalk";
+	string invertkey = "invert_K";
 	[SerializeField]
-	string idleString = "colguyidle";
+	string walkString = "isWalk";
+
 
 	//OPTIMIZATION :-)
 	int walkHash;
-	int idleHash;
+
 
 
 
 	//Animation stuff
 	bool isWalk;
+	bool invert;
 
 	// Use this for initialization
 	void Awake () {
 		rb2D = GetComponent<Rigidbody2D> ();
 		animator = GetComponent<Animator> ();
 
-		walkHash = Animator.StringToHash ("colguywalk");
-		idleHash = Animator.StringToHash ("colguyidle");
+		walkHash = Animator.StringToHash ("isWalk");
+		gravities = GameObject.FindGameObjectsWithTag ("Gravity");
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+		if (Input.GetButton (invertkey))
+			Invert (200);
 
 	}
 
 	void FixedUpdate(){
 		moveX = Input.GetAxis (xaxis);
 		animator.SetFloat ("Speed", Mathf.Abs (moveX));
+
+	}
+
+	void Invert(float speed){
+		//when called, flips all objects with a child with tag "Gravity"
+		foreach (GameObject grav in gravities) {
+			GameObject obj = grav.transform.parent.gameObject;
+			Rigidbody2D objrb2d = obj.GetComponent<Rigidbody2D> ();
+			objrb2d.gravityScale *= -1;
+			objrb2d.MoveRotation (Mathf.Lerp(objrb2d.rotation, objrb2d.rotation + 180, speed));
+		}
 	}
 }

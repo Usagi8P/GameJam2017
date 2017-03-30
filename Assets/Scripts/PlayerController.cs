@@ -6,7 +6,6 @@ public class PlayerController : MonoBehaviour {
 	Rigidbody2D rb2D;
 	Animator animator;
 	float moveX;
-	GameObject[] gravities;
 	GameObject[] limbs;
 
 	//publicly editable stuff :)
@@ -36,9 +35,9 @@ public class PlayerController : MonoBehaviour {
 	bool isJump = false;
 	[HideInInspector]
 	public bool grounded = false;
-	bool inverted = false;
-	bool inverting = false;
-	bool imInvert = false;
+	[HideInInspector]
+	public bool inverting = false;
+
 	float invertTimer = 0f;
 
 	// Use this for initialization
@@ -52,8 +51,7 @@ public class PlayerController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		gravities = GameObject.FindGameObjectsWithTag ("Gravity");
-		if (Input.GetButtonDown (invertkey) && invertTimer < maxInvertTimer){
+		if (Input.GetButtonDown (invertkey)){
 			inverting = true;
 		}
 		if (Input.GetButton (jumpkey) && grounded)
@@ -71,27 +69,12 @@ public class PlayerController : MonoBehaviour {
 			Jump (jumpHeight);
 		}
 		if (inverting) {
-			Invert (0.5f);
+			GameObject.FindGameObjectWithTag("GOD").GetComponent<Inverter>().Invert ();
 		}
 
 	}
 
-	void Invert(float speed){
-		inverted = !inverted;
-		//when called, flips all objects with a child with tag "Gravity"
-		foreach (GameObject grav in gravities) {
-			GameObject obj = grav.transform.parent.gameObject;
-			Rigidbody2D objrb2d = obj.GetComponent<Rigidbody2D> ();
-			if (inverted)
-				objrb2d.MoveRotation (0);
-			else
-				objrb2d.MoveRotation (180);
-			objrb2d.gravityScale *= -1;
 
-		}
-		inverting = false;
-
-	}
 
 	/*void InvertEnd(){
 		//checks if inversion is now over and then unlocks everything if so
@@ -115,6 +98,12 @@ public class PlayerController : MonoBehaviour {
 	void Walk(float speed){
 		rb2D.velocity = new Vector2(speed, rb2D.velocity.y);
 	}
+
+	void FlipX(){
+
+	}
+		
+
 
 
 }

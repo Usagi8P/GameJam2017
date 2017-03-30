@@ -4,8 +4,8 @@ using System.Collections;
 
 public class Grid : MonoBehaviour {
 
-	public float width = 3.65f;
-	public float height = 3.65f;
+	public float width = 0.5f;
+	public float height = 0.5f;
 
 	public float screenHeight = 800.0f;
 	public float screenWidth = 1200.0f;

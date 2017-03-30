@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class playerHit : MonoBehaviour {
+	//Todo, make full animation play before scene is reloaded.
 	Animator anim;
 	bool isDead = false;
 	Animation death;
+	float deathTime = 0;
 	// Use this for initialization
 	void Awake () {
 		anim = GetComponent<Animator> ();

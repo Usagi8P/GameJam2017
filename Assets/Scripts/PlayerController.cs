@@ -33,7 +33,8 @@ public class PlayerController : MonoBehaviour {
 	//Animation stuff
 	bool isWalk;
 	bool isJump = false;
-	bool grounded = false;
+	[HideInInspector]
+	public bool grounded = false;
 	bool inverted = false;
 	bool inverting = false;
 	float invertTimer = 0f;
@@ -93,7 +94,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 	void Jump(float speed){
-		rb2D.AddForce (new Vector2 (0f, speed));
+		rb2D.AddForce (new Vector2 (0f, speed), ForceMode2D.Impulse);
 		isJump = false;
 		grounded = false;
 	}
@@ -103,8 +104,5 @@ public class PlayerController : MonoBehaviour {
 		rb2D.velocity = new Vector2(speed, rb2D.velocity.y);
 	}
 
-	void OnCollisionEnter2D(Collision2D collider){
-		if (collider.gameObject.CompareTag("Floor"))
-			grounded=true;
-	}
+
 }

@@ -9,6 +9,7 @@ TagManager:
   - Door
   - Bad
   - Floor
+  - Foot
   layers:
   - Default
   - TransparentFX

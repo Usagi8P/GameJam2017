@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerHit : MonoBehaviour {
-
+	Animator anim;
+	bool isDead = false;
+	Animation death;
 	// Use this for initialization
-	void Start () {
-		
+	void Awake () {
+		anim = GetComponent<Animator> ();
+		death = GetComponent<Animation> ();
 	}
 
 	void OnCollision(Collider2D collision){
@@ -17,10 +21,22 @@ public class playerHit : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(isDead)
+		{
+			CharacterController cc = GetComponent<CharacterController>();
+			cc.enabled = false; 
+			if (!death.isPlaying) { //once anims stopped
+				SceneManager.LoadScene(SceneManager.GetActiveScene());
+			}
+		}
+
 	}
 
 	void Death(){
+		anim.SetTrigger ("isDead");
+		isDead = true;
+			
+
 
 	}
 }

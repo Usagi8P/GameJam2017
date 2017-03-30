@@ -1,18 +1,18 @@
 fileFormatVersion: 2
 guid: 13f048b6d4b86834481c03e16c1d5887
-<<<<<<< HEAD
-timeCreated: 1490896803
-=======
-timeCreated: 1490900295
->>>>>>> master
+timeCreated: 1490916601
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Boxes_Floor
-    21300002: Boxes_Death_Grav
-    21300004: Boxes_Bolted
-    21300006: Boxes_Death_Bolted
-    21300008: Boxes_Grav
+    21300000: Boxes_Gav
+    21300002: Floor
+    21300004: Boxes_Death_Grav
+    21300006: Boxes_Bolted
+    21300008: Boxes_Death_Bolted
+    21300010: Door_Right
+    21300012: Door_Left
+    21300014: Switch_Up
+    21300016: Switch_Down
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -36,7 +36,7 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -1
     wrapMode: 1
@@ -79,12 +79,25 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boxes_Floor
+      name: Boxes_Gav
       rect:
         serializedVersion: 2
-        x: 4
+        x: 51
         y: 250
-        width: 47
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Floor
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 250
+        width: 50
         height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -131,13 +144,52 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Boxes_Grav
+      name: Door_Right
       rect:
         serializedVersion: 2
-        x: 51
-        y: 250
+        x: 50
+        y: 146
         width: 50
-        height: 50
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Door_Left
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 146
+        width: 50
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Switch_Up
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 157
+        width: 50
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Switch_Down
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 157
+        width: 50
+        height: 58
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

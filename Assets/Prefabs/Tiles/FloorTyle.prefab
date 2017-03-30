@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212000011466823818}
   - component: {fileID: 61000011643771446}
   - component: {fileID: 50000011384771342}
+  - component: {fileID: 251962938955045262}
   m_Layer: 0
   m_Name: FloorTyle
   m_TagString: Floor
@@ -70,9 +71,9 @@ BoxCollider2D:
   m_GameObject: {fileID: 1000014084158240}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7f2de44ea973d1f49bf5b0c3a182a669, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
@@ -107,7 +108,25 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 13f048b6d4b86834481c03e16c1d5887, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 13f048b6d4b86834481c03e16c1d5887, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!251 &251962938955045262
+PlatformEffector2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014084158240}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 0
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1

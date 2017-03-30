@@ -6,7 +6,6 @@ public class PlayerController : MonoBehaviour {
 	Rigidbody2D rb2D;
 	Animator animator;
 	float moveX;
-	GameObject[] gravities;
 	GameObject[] limbs;
 
 	//publicly editable stuff :)
@@ -22,7 +21,8 @@ public class PlayerController : MonoBehaviour {
 	string invertkey = "invert_K";
 	[SerializeField]
 	string walkString = "isWalk";
-
+	[SerializeField]
+	float maxInvertTimer = 5;
 
 	//OPTIMIZATION :-)
 	int walkHash;
@@ -35,8 +35,9 @@ public class PlayerController : MonoBehaviour {
 	bool isJump = false;
 	[HideInInspector]
 	public bool grounded = false;
-	bool inverted = false;
-	bool inverting = false;
+	[HideInInspector]
+	public bool inverting = false;
+
 	float invertTimer = 0f;
 
 	// Use this for initialization
@@ -45,7 +46,7 @@ public class PlayerController : MonoBehaviour {
 		animator = GetComponent<Animator> ();
 
 		walkHash = Animator.StringToHash ("isWalk");
-		gravities = GameObject.FindGameObjectsWithTag ("Gravity");
+
 	}
 
 	// Update is called once per frame
@@ -55,6 +56,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		if (Input.GetButton (jumpkey) && grounded)
 			isJump = true;
+
 	}
 
 	void FixedUpdate(){
@@ -67,32 +69,23 @@ public class PlayerController : MonoBehaviour {
 			Jump (jumpHeight);
 		}
 		if (inverting) {
-			Invert (0.5f);
-		}
-	}
-
-	void Invert(float speed){
-		inverted = !inverted;
-		//when called, flips all objects with a child with tag "Gravity"
-		foreach (GameObject grav in gravities) {
-			GameObject obj = grav.transform.parent.gameObject;
-			Rigidbody2D objrb2d = obj.GetComponent<Rigidbody2D> ();
-			objrb2d.constraints = RigidbodyConstraints2D.FreezePositionX;
-			objrb2d.MoveRotation (180);
-			objrb2d.gravityScale *= -1;
-
+			GameObject.FindGameObjectWithTag("GOD").GetComponent<Inverter>().Invert ();
 		}
 
 	}
 
-	void InvertEnd(){
+
+
+	/*void InvertEnd(){
 		//checks if inversion is now over and then unlocks everything if so
 		foreach (GameObject grav in gravities) {
 			GameObject obj = grav.transform.parent.gameObject;
 			Rigidbody2D objrb2d = obj.GetComponent<Rigidbody2D> ();
+			if (objrb2d.
 				objrb2d.constraints = RigidbodyConstraints2D.None;
 		}
-	}
+		inverting = false;
+	}*/
 	void Jump(float speed){
 		//Jumps, also returns the fact that we no longer can jump
 		rb2D.velocity = new Vector2(rb2D.velocity.x, 0);
@@ -105,6 +98,12 @@ public class PlayerController : MonoBehaviour {
 	void Walk(float speed){
 		rb2D.velocity = new Vector2(speed, rb2D.velocity.y);
 	}
+
+	void FlipX(){
+
+	}
+		
+
 
 
 }

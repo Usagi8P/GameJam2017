@@ -4,17 +4,19 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class playerHit : MonoBehaviour {
+	//Todo, make full animation play before scene is reloaded.
 	Animator anim;
 	bool isDead = false;
 	Animation death;
+	float deathTime = 0;
 	// Use this for initialization
 	void Awake () {
 		anim = GetComponent<Animator> ();
 		death = GetComponent<Animation> ();
 	}
 
-	void OnCollision(Collider2D collision){
-		if (collision.CompareTag ("Bad"))
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.gameObject.CompareTag ("Bad"))
 			Death ();
 			
 	}
@@ -23,7 +25,7 @@ public class playerHit : MonoBehaviour {
 	void Update () {
 		if(isDead)
 		{
-			CharacterController cc = GetComponent<CharacterController>();
+			PlayerController cc = GetComponent<PlayerController>();
 			cc.enabled = false; 
 			if (!death.isPlaying) { //once anims stopped
 				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -33,6 +35,7 @@ public class playerHit : MonoBehaviour {
 	}
 
 	void Death(){
+		Debug.Log ("im dead");
 		anim.SetTrigger ("isDead");
 		isDead = true;
 			

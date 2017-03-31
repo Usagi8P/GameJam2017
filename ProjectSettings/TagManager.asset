@@ -8,6 +8,8 @@ TagManager:
   - Limbs
   - Door
   - Bad
+  - Floor
+  - GOD
   layers:
   - Default
   - TransparentFX

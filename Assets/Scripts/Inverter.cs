@@ -3,10 +3,21 @@ using System.Collections;
 
 public class Inverter : MonoBehaviour {
 
+	GameObject[] gravities;
+	bool inverted = false;
+
 	// Use this for initialization
-	void Start () {
+	void Awake () {
+		InvertSong ();
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		gravities = GameObject.FindGameObjectsWithTag ("Gravity");
+	}
+
+	void InvertSong() {
 		AudioSource aud = GetComponent<AudioSource>();
-		bool allFloatsAreZero = true;
 		float[] samples = new float[aud.clip.samples * aud.clip.channels];
 		aud.clip.GetData(samples, 0);
 		int i = 0;
@@ -15,11 +26,19 @@ public class Inverter : MonoBehaviour {
 			++i;
 		}
 		aud.clip.SetData(samples, 0);
-		Debug.Log (allFloatsAreZero);
+
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public void Invert(){
+		inverted = !inverted;
+		//when called, flips all objects with a child with tag "Gravity"
+		foreach (GameObject grav in gravities) {
+			if (inverted != grav.GetComponent<InverterChecker>().isInverted)
+				grav.GetComponent<InverterChecker>().FlipY();
+
+
+		}
+		GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().inverting = false;
+
 	}
 }

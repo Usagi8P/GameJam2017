@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour {
 	bool midInvert = false;
 	bool facingRight = false;
 	public bool isButton = false;
+	bool frozen = false;
 
 	// Use this for initialization
 	void Awake () {
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
+		Debug.Log (isButton);
 		moveX = Input.GetAxis (xaxis);
 		animator.SetFloat ("WalkSpeed", Mathf.Abs(moveX));
 
@@ -77,13 +79,14 @@ public class PlayerController : MonoBehaviour {
 		if (inverting) {
 			GameObject.FindGameObjectWithTag("GOD").GetComponent<Inverter>().Invert ();
 		}
-		if (moveX < 0 && !facingRight)
+		if (moveX < 0 && !facingRight && !isButton)
 			FlipX (flipTime);
-		else if (moveX > 0 && facingRight)
+		else if (moveX > 0 && facingRight && !isButton)
 			FlipX (flipTime);
 
 		conditionalFreeze ();
 		evenMoreConditionalFreeze (isButton);
+
 	}
 
 
@@ -121,7 +124,7 @@ public class PlayerController : MonoBehaviour {
 		transform.localScale = theScale;
 	}
 
-	void conditionalFreeze(){
+	public void conditionalFreeze(){
 		//BAD FUNCTION THAT FREEZES BASED ON A BUNCH OF GLOBAL VARS AAA
 		if (!grounded && midInvert) {
 			rb2D.constraints = RigidbodyConstraints2D.FreezePositionX;
@@ -135,8 +138,10 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void evenMoreConditionalFreeze(bool condition){
-		if (condition)
+		if (condition) {
 			rb2D.constraints = RigidbodyConstraints2D.FreezeAll;
+			moveX = 0;
+		}
 		else {
 			rb2D.constraints = RigidbodyConstraints2D.None;
 			rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;

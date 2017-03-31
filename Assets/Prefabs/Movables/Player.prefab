@@ -628,6 +628,7 @@ MonoBehaviour:
   flipTime: 200
   grounded: 1
   inverting: 0
+  isButton: 0
 --- !u!114 &114299750328961604
 MonoBehaviour:
   m_ObjectHideFlags: 1

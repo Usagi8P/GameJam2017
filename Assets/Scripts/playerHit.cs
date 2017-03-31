@@ -28,6 +28,7 @@ public class playerHit : MonoBehaviour {
 			PlayerController cc = GetComponent<PlayerController>();
 			cc.enabled = false; 
 			if (!death.isPlaying) { //once anims stopped
+				Debug.Log("I AM DEAD");
 				//SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 			}
 		}

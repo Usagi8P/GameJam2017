@@ -32,7 +32,7 @@ public class DoorLogic : MonoBehaviour {
 			anim.SetTrigger ("Open");			
 	}
 
-	void OnTriggerEnter2D(Collision2D collision){
+	void OnTriggerEnter2D(Collider2D collision){
 		if (isOpen && collision.gameObject.CompareTag ("Player"))
 			SceneManager.LoadScene (nextLevel);
 	}

@@ -8,7 +8,10 @@ public class playerHit : MonoBehaviour {
 	Animator anim;
 	bool isDead = false;
 	Animation death;
+	public AudioClip deathClip;
 	float deathTime = 0;
+
+
 	// Use this for initialization
 	void Awake () {
 		anim = GetComponent<Animator> ();
@@ -44,6 +47,8 @@ public class playerHit : MonoBehaviour {
 	public void Death(){
 		Debug.Log ("im dead");
 		GetComponent<PlayerController> ().resetWalk ();
+		GameObject.FindGameObjectWithTag ("GOD").GetComponent<AudioSource>().clip = deathClip;
+		GameObject.FindGameObjectWithTag ("GOD").GetComponent<AudioSource> ().Play ();
 		anim.SetTrigger ("isDead");
 		isDead = true;
 		GetComponent<PlayerController> ().evenMoreConditionalFreeze (isDead);

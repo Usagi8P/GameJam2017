@@ -17,7 +17,6 @@ public class grounded : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collider){
 		if (collider.gameObject.CompareTag ("Floor")) {
 			transform.GetComponentInParent<PlayerController> ().grounded = true;
-			Debug.Log (i);
 			i++;
 		}
 		

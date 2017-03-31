@@ -130,12 +130,11 @@ public class PlayerController : MonoBehaviour {
 	public void conditionalFreeze(){
 		//BAD FUNCTION THAT FREEZES BASED ON A BUNCH OF GLOBAL VARS AAA
 		if (!grounded && midInvert) {
-			rb2D.constraints = RigidbodyConstraints2D.FreezePositionX;
+			rb2D.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation; 
 			moveX = 0;
 			Debug.Log (rb2D.transform.gameObject.name);
 		} else if (grounded && !isButton) {
 			midInvert = false;
-			rb2D.constraints = RigidbodyConstraints2D.None;
 			rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
 		}
 		else if(grounded && isButton)
@@ -148,7 +147,6 @@ public class PlayerController : MonoBehaviour {
 			moveX = 0;
 		}
 		else {
-			rb2D.constraints = RigidbodyConstraints2D.None;
 			rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
 		}
 

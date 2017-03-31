@@ -8,6 +8,7 @@ public class SwitchLogic : MonoBehaviour {
 	Animator playeranim;
 	Animator switchanim;
 	GameObject player;
+	bool on = false;
 
 
 	void Awake() {
@@ -24,11 +25,12 @@ public class SwitchLogic : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D collision){
-		if (collision.gameObject.CompareTag ("PlayerFoot")) {
+		if (collision.gameObject.CompareTag ("PlayerFoot") && !on) {
 			GameObject.FindGameObjectWithTag ("GOD").GetComponent<Switcher>().Switch();
 			switchanim.SetTrigger ("On");
 			playeranim.SetTrigger ("TurnOn");
 			player = collision.gameObject.transform.parent.gameObject;
+			on = true;
 		}
 
 	}

@@ -19,10 +19,10 @@ public class PlayerController : MonoBehaviour {
 	string jumpkey = "jump_K";
 	[SerializeField]
 	string invertkey = "invert_K";
-	[SerializeField]
 	string walkString = "isWalk";
 	[SerializeField]
-	float maxInvertTimer = 5;
+	float flipTime = 5;
+
 
 	//OPTIMIZATION :-)
 	int walkHash;
@@ -59,6 +59,7 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetButton (jumpkey) && grounded)
 			isJump = true;
 
+		animator.SetBool ("isJump", !grounded);
 
 
 	}
@@ -76,9 +77,9 @@ public class PlayerController : MonoBehaviour {
 			GameObject.FindGameObjectWithTag("GOD").GetComponent<Inverter>().Invert ();
 		}
 		if (moveX < 0 && !facingRight)
-			FlipX ();
+			FlipX (flipTime);
 		else if (moveX > 0 && facingRight)
-			FlipX ();
+			FlipX (flipTime);
 
 		conditionalFreeze ();
 
@@ -99,6 +100,7 @@ public class PlayerController : MonoBehaviour {
 	void Jump(float speed){
 		//Jumps, also returns the fact that we no longer can jump
 		rb2D.velocity = new Vector2(rb2D.velocity.x, 0);
+		//animator.SetTrigger ("isJump");
 		rb2D.AddForce (new Vector2 (0f, speed), ForceMode2D.Impulse);
 		isJump = false;
 		grounded = false;
@@ -109,12 +111,12 @@ public class PlayerController : MonoBehaviour {
 		rb2D.velocity = new Vector2(speed, rb2D.velocity.y);
 	}
 
-	void FlipX(){
+	void FlipX(float flipTime){
 		//flips player :)
 		facingRight = !facingRight;
 
 		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
+		Mathf.Lerp(theScale.x, theScale.x *= -1, flipTime);
 		transform.localScale = theScale;
 	}
 
@@ -133,7 +135,7 @@ public class PlayerController : MonoBehaviour {
 
 	public void evenMoreConditionalFreeze(bool condition){
 		if (condition)
-			rb2D.constraints = RigidbodyConstraints2D.FreezePositionX;
+			rb2D.constraints = RigidbodyConstraints2D.FreezeAll;
 		else {
 			rb2D.constraints = RigidbodyConstraints2D.None;
 			rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -142,6 +144,9 @@ public class PlayerController : MonoBehaviour {
 	}
 		
 
-
+	public void resetWalk(){
+		//pointless function to make sure death always works :)
+		animator.SetFloat("WalkSpeed", 1);
+	}
 
 }

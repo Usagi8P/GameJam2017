@@ -28,7 +28,7 @@ public class playerHit : MonoBehaviour {
 			PlayerController cc = GetComponent<PlayerController>();
 			cc.enabled = false; 
 			if (!death.isPlaying) { //once anims stopped
-				Debug.Log("I AM DEAD");
+
 				//SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 			}
 		}
@@ -37,8 +37,10 @@ public class playerHit : MonoBehaviour {
 
 	public void Death(){
 		Debug.Log ("im dead");
+		GetComponent<PlayerController> ().resetWalk ();
 		anim.SetTrigger ("isDead");
 		isDead = true;
+		GetComponent<PlayerController> ().evenMoreConditionalFreeze (isDead);
 			
 
 

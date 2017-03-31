@@ -8,7 +8,7 @@ public class Inverter : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		InvertSong ();
+		
 	}
 	
 	// Update is called once per frame
@@ -16,26 +16,25 @@ public class Inverter : MonoBehaviour {
 		gravities = GameObject.FindGameObjectsWithTag ("Gravity");
 	}
 
-	void InvertSong() {
-		AudioSource aud = GetComponent<AudioSource>();
-		float[] samples = new float[aud.clip.samples * aud.clip.channels];
-		aud.clip.GetData(samples, 0);
-		int i = 0;
-		while (i < samples.Length) {
-			samples[i] = samples[i] * 0.5F;
-			++i;
-		}
-		aud.clip.SetData(samples, 0);
+	public void InvertSong() {
+		AudioSource aud = GetComponent<AudioSource> ();
+		aud.timeSamples = aud.clip.samples - 1;
+		aud.pitch *= 0.5f;
+		aud.Play ();
 
 	}
-	void ReverseSong(){
-		AudioSource aud = GetComponent<AudioSource> ();
+	public void ReverseSong(){
 
+		AudioSource aud = GetComponent<AudioSource> ();
+		aud.timeSamples = aud.clip.samples - 1;
+		aud.pitch = -1;
+		aud.Play ();
 
 	}
 
 	public void Invert(){
 		inverted = !inverted;
+		InvertSong ();
 		//when called, flips all objects with a child with tag "Gravity"
 		foreach (GameObject grav in gravities) {
 			Debug.Log (grav.transform.parent.gameObject.ToString ());

@@ -110,7 +110,6 @@ public class PlayerController : MonoBehaviour {
 
 	void conditionalFreeze(){
 		//BAD FUNCTION THAT FREEZES BASED ON A BUNCH OF GLOBAL VARS AAA
-		Debug.Log(midInvert);
 		if (!grounded && midInvert) {
 			rb2D.constraints = RigidbodyConstraints2D.FreezePositionX;
 			moveX = 0;

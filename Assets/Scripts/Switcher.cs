@@ -19,6 +19,8 @@ public class Switcher : MonoBehaviour {
 			toBeActivated.GetComponent<Switched> ().isOn = true;
 
 		}
+		Debug.Log ("hello");
+		GetComponent<Inverter> ().ReverseSong ();
 
 	}
 }

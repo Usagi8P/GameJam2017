@@ -1212,17 +1212,17 @@ Prefab:
     - target: {fileID: 20436510142256514, guid: 8ae0aa3b66c6d71459f07c8ab8809513,
         type: 2}
       propertyPath: m_BackGroundColor.r
-      value: 0
+      value: 0.47794116
       objectReference: {fileID: 0}
     - target: {fileID: 20436510142256514, guid: 8ae0aa3b66c6d71459f07c8ab8809513,
         type: 2}
       propertyPath: m_BackGroundColor.g
-      value: 0
+      value: 0.47794116
       objectReference: {fileID: 0}
     - target: {fileID: 20436510142256514, guid: 8ae0aa3b66c6d71459f07c8ab8809513,
         type: 2}
       propertyPath: m_BackGroundColor.b
-      value: 0
+      value: 0.47794116
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ae0aa3b66c6d71459f07c8ab8809513, type: 2}

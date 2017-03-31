@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4000013319586844}
   - component: {fileID: 82000013113945194}
   - component: {fileID: 114000011187358048}
+  - component: {fileID: 114178922951843846}
   m_Layer: 0
   m_Name: God
   m_TagString: GOD
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013586104426}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.7, y: -3.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -50,7 +51,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6d5d549da783f8d40932f274a55306d9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d03ec901c9daa9d4c9eb3f5055a06431, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -130,5 +131,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a52ede1c4ba8bb4b8e54041744d82c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114178922951843846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013586104426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf13a68c5d2f31e43a7cedfecd860e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

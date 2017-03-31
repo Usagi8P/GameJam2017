@@ -11,7 +11,7 @@ public class SwitchLogic : MonoBehaviour {
 
 	void Awake() {
 		playeranim = GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ();
-		switchanim = GetComponent<Animator> ();
+		switchanim = GetComponentInParent<Animator> ();
 	}
 	void Start () {
 		

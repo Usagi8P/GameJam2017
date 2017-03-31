@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour {
 	public bool grounded = false;
 	[HideInInspector]
 	public bool inverting = false;
+	bool midInvert = false;
 
 	float invertTimer = 0f;
 
@@ -69,8 +70,11 @@ public class PlayerController : MonoBehaviour {
 			Jump (jumpHeight);
 		}
 		if (inverting) {
+			midInvert = true;
 			GameObject.FindGameObjectWithTag("GOD").GetComponent<Inverter>().Invert ();
 		}
+
+		conditionalFreeze ();
 
 	}
 
@@ -101,6 +105,18 @@ public class PlayerController : MonoBehaviour {
 
 	void FlipX(){
 
+	}
+
+	void conditionalFreeze(){
+		//BAD FUNCTION THAT FREEZES BASED ON A BUNCH OF GLOBAL VARS AAA
+		if (!grounded && midInvert) {
+			rb2D.constraints = RigidbodyConstraints2D.FreezePositionX;
+
+		} else if (grounded) {
+			midInvert = false;
+			rb2D.constraints = RigidbodyConstraints2D.None;
+			rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+		}
 	}
 		
 

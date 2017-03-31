@@ -26,10 +26,12 @@ public class SwitchLogic : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collision){
 		if (collision.gameObject.CompareTag ("PlayerFoot") && !on) {
+			player = collision.gameObject.transform.parent.gameObject;
 			GameObject.FindGameObjectWithTag ("GOD").GetComponent<Switcher>().Switch();
+			player.GetComponent<PlayerController> ().resetWalk ();
 			switchanim.SetTrigger ("On");
 			playeranim.SetTrigger ("TurnOn");
-			player = collision.gameObject.transform.parent.gameObject;
+
 			on = true;
 		}
 

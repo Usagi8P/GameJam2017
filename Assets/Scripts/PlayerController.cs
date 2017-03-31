@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour {
 	public bool inverting = false;
 	bool midInvert = false;
 	bool facingRight = false;
+	public bool isButton = false;
 
 	// Use this for initialization
 	void Awake () {
@@ -82,7 +83,7 @@ public class PlayerController : MonoBehaviour {
 			FlipX (flipTime);
 
 		conditionalFreeze ();
-
+		evenMoreConditionalFreeze (isButton);
 	}
 
 

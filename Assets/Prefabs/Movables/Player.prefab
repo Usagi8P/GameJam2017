@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114660686511420588}
   m_Layer: 0
   m_Name: Foot
-  m_TagString: Untagged
+  m_TagString: PlayerFoot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -625,8 +625,7 @@ MonoBehaviour:
   xaxis: horizontal_K
   jumpkey: jump_K
   invertkey: invert_K
-  walkString: colguywalk
-  maxInvertTimer: 5
+  flipTime: 200
   grounded: 1
   inverting: 0
 --- !u!114 &114299750328961604

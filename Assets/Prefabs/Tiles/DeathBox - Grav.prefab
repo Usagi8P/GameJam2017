@@ -36,8 +36,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4060067957464662}
   - component: {fileID: 212913928708691432}
-  - component: {fileID: 61609507211469668}
   - component: {fileID: 50267719637333898}
+  - component: {fileID: 68953965493121810}
   m_Layer: 0
   m_Name: DeathBox - Grav
   m_TagString: Bad
@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1445085359579716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.24999, y: -2.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4812396548293414}
@@ -92,8 +92,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61609507211469668
-BoxCollider2D:
+--- !u!68 &68953965493121810
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -104,8 +104,12 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Points:
+  - {x: -0.2499721, y: -0.2500081}
+  - {x: -0.24991179, y: 0.2500105}
+  - {x: 0.25002813, y: 0.25000334}
+  - {x: 0.2500465, y: -0.25001955}
+  - {x: -0.24995899, y: -0.24998188}
 --- !u!114 &114782748594934070
 MonoBehaviour:
   m_ObjectHideFlags: 1

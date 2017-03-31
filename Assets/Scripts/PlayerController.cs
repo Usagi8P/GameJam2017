@@ -130,11 +130,13 @@ public class PlayerController : MonoBehaviour {
 			rb2D.constraints = RigidbodyConstraints2D.FreezePositionX;
 			moveX = 0;
 			Debug.Log (rb2D.transform.gameObject.name);
-		} else if (grounded) {
+		} else if (grounded && !isButton) {
 			midInvert = false;
 			rb2D.constraints = RigidbodyConstraints2D.None;
 			rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
 		}
+		else if(grounded && isButton)
+			evenMoreConditionalFreeze (isButton);
 	}
 
 	public void evenMoreConditionalFreeze(bool condition){

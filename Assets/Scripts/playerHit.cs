@@ -32,9 +32,8 @@ public class playerHit : MonoBehaviour {
 		{
 			PlayerController cc = GetComponent<PlayerController>();
 			cc.enabled = false; 
-			if (!death.isPlaying) { //once anims stopped
-
-				//SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			if (Input.GetButtonDown("Reset_K")) { //once anims stopped
+				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 			}
 		}
 

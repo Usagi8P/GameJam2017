@@ -7,6 +7,7 @@ public class SwitchLogic : MonoBehaviour {
 	// Use this for initialization
 	Animator playeranim;
 	Animator switchanim;
+	GameObject player;
 
 
 	void Awake() {
@@ -27,7 +28,7 @@ public class SwitchLogic : MonoBehaviour {
 			GameObject.FindGameObjectWithTag ("GOD").GetComponent<Switcher>().Switch();
 			switchanim.SetTrigger ("On");
 			playeranim.SetTrigger ("TurnOn");
-
+			player = collision.gameObject.transform.parent.gameObject;
 		}
 
 	}

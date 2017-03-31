@@ -6189,6 +6189,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 173
       objectReference: {fileID: 0}
+    - target: {fileID: 111694750691967966, guid: bad140bf3589af94eacd71f10059c80f,
+        type: 2}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 7400000, guid: e7dd9c5d9f931af4d8bf3c1e7b74c59b, type: 2}
+    - target: {fileID: 111694750691967966, guid: bad140bf3589af94eacd71f10059c80f,
+        type: 2}
+      propertyPath: m_Animations.Array.data[0]
+      value: 
+      objectReference: {fileID: 7400000, guid: e7dd9c5d9f931af4d8bf3c1e7b74c59b, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bad140bf3589af94eacd71f10059c80f, type: 2}
   m_IsPrefabParent: 0

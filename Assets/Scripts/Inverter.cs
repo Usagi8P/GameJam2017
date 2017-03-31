@@ -18,10 +18,7 @@ public class Inverter : MonoBehaviour {
 
 	public void InvertSong() {
 		AudioSource aud = GetComponent<AudioSource> ();
-		aud.timeSamples = aud.clip.samples - 1;
-		aud.pitch *= 0.5f;
-		aud.Play ();
-
+		
 	}
 	public void ReverseSong(){
 

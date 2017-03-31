@@ -28,13 +28,15 @@ public class playerHit : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Input.GetButtonDown("Reset_K")) { //once anims stopped
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		}
+			
 		if(isDead)
 		{
 			PlayerController cc = GetComponent<PlayerController>();
 			cc.enabled = false; 
-			if (Input.GetButtonDown("Reset_K")) { //once anims stopped
-				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-			}
+
 		}
 
 	}

@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4000012091923918}
   - component: {fileID: 212000011466823818}
-  - component: {fileID: 61000011643771446}
   - component: {fileID: 50000011384771342}
+  - component: {fileID: 68648391840011110}
   m_Layer: 0
   m_Name: MoveTile
   m_TagString: Floor
@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014084158240}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.25, y: -2.25, z: 0}
+  m_LocalPosition: {x: -3.25, y: -4.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4342370923721878}
@@ -92,8 +92,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &61000011643771446
-BoxCollider2D:
+--- !u!68 &68648391840011110
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -104,8 +104,12 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Points:
+  - {x: -0.24993443, y: 0.25001216}
+  - {x: 0.2500372, y: 0.25004315}
+  - {x: 0.25010777, y: -0.24994135}
+  - {x: -0.24984908, y: -0.24989796}
+  - {x: -0.2501297, y: 0.24987793}
 --- !u!114 &114180064902186696
 MonoBehaviour:
   m_ObjectHideFlags: 1

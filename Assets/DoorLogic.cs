@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorLogic : MonoBehaviour {
-	public GameObject player;
+	GameObject player;
 	[SerializeField]
 	string nextLevel;
 
@@ -26,7 +27,14 @@ public class DoorLogic : MonoBehaviour {
 		
 	// Update is called once per frame
 	void Update () {
+		isOpen = GetComponentInChildren<switched> ().isOn;
 		if (isOpen)
 			anim.SetTrigger ("Open");			
 	}
+
+	void OnTriggerEnter2D(Collision2D collision){
+		if (isOpen && collision.gameObject.CompareTag ("Player"))
+			SceneManager.LoadScene (nextLevel);
+	}
+
 }

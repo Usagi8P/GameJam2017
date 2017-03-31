@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 1d548bc5c98324346a30013ee39b4a63
+timeCreated: 1490918136
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Freight Train Gangsta
+  fontNames:
+  - Freight Train Gangsta
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

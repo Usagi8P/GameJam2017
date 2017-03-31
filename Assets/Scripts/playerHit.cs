@@ -28,13 +28,13 @@ public class playerHit : MonoBehaviour {
 			PlayerController cc = GetComponent<PlayerController>();
 			cc.enabled = false; 
 			if (!death.isPlaying) { //once anims stopped
-				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+				//SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 			}
 		}
 
 	}
 
-	void Death(){
+	public void Death(){
 		Debug.Log ("im dead");
 		anim.SetTrigger ("isDead");
 		isDead = true;

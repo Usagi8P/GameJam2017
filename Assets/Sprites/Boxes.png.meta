@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 13f048b6d4b86834481c03e16c1d5887
-timeCreated: 1490916601
+timeCreated: 1490927251
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -13,6 +13,7 @@ TextureImporter:
     21300012: Door_Left
     21300014: Switch_Up
     21300016: Switch_Down
+    21300018: Floor_Full
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -190,6 +191,19 @@ TextureImporter:
         y: 157
         width: 50
         height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Floor_Full
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 188
+        width: 50
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

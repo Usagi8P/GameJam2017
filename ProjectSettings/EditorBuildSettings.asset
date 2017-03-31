@@ -15,3 +15,7 @@ EditorBuildSettings:
     path: Assets/_Scenes/Phil_1.unity
   - enabled: 1
     path: Assets/_Scenes/fran 2.unity
+  - enabled: 1
+    path: Assets/_Scenes/thenewscene.unity
+  - enabled: 1
+    path: Assets/_Scenes/ending.unity

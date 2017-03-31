@@ -105,7 +105,10 @@ public class PlayerController : MonoBehaviour {
 		//Jumps, also returns the fact that we no longer can jump
 		rb2D.velocity = new Vector2(rb2D.velocity.x, 0);
 		//animator.SetTrigger ("isJump");
-		rb2D.AddForce (new Vector2 (0f, speed), ForceMode2D.Impulse);
+		if (!GetComponentInChildren<InverterChecker> ().isInverted)
+			rb2D.AddForce (new Vector2 (0f, speed), ForceMode2D.Impulse);
+		else
+			rb2D.AddForce (new Vector2 (0f, -speed), ForceMode2D.Impulse);
 		isJump = false;
 		grounded = false;
 	}

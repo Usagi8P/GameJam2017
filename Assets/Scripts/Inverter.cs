@@ -33,8 +33,9 @@ public class Inverter : MonoBehaviour {
 		inverted = !inverted;
 		//when called, flips all objects with a child with tag "Gravity"
 		foreach (GameObject grav in gravities) {
+			Debug.Log (grav.transform.parent.gameObject.ToString ());
 			if (inverted != grav.GetComponent<InverterChecker> ().isInverted)
-				Debug.Log (grav.ToString ());
+				
 				grav.GetComponent<InverterChecker>().FlipY();
 
 

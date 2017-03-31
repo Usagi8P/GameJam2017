@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4776879292092598}
   - component: {fileID: 212321123430036946}
   - component: {fileID: 61489159064575516}
+  - component: {fileID: 114299750328961604}
   m_Layer: 0
   m_Name: Head
   m_TagString: Limbs
@@ -628,6 +629,17 @@ MonoBehaviour:
   maxInvertTimer: 5
   grounded: 1
   inverting: 0
+--- !u!114 &114299750328961604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1054934959742168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583a1f55fb71f6b46af387b61642cde3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114334851076896678
 MonoBehaviour:
   m_ObjectHideFlags: 1

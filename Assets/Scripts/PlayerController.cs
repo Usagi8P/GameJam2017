@@ -67,7 +67,6 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		Debug.Log (isButton);
 		moveX = Input.GetAxis (xaxis);
 		animator.SetFloat ("WalkSpeed", Mathf.Abs(moveX));
 
@@ -79,13 +78,14 @@ public class PlayerController : MonoBehaviour {
 		if (inverting) {
 			GameObject.FindGameObjectWithTag("GOD").GetComponent<Inverter>().Invert ();
 		}
-		if (moveX < 0 && !facingRight && !isButton)
+		if (moveX <0 && !facingRight && !isButton)
 			FlipX (flipTime);
 		else if (moveX > 0 && facingRight && !isButton)
 			FlipX (flipTime);
 
 		conditionalFreeze ();
-		evenMoreConditionalFreeze (isButton);
+		//evenMoreConditionalFreeze (isButton);
+
 
 	}
 
@@ -129,12 +129,14 @@ public class PlayerController : MonoBehaviour {
 		if (!grounded && midInvert) {
 			rb2D.constraints = RigidbodyConstraints2D.FreezePositionX;
 			moveX = 0;
-
-		} else if (grounded) {
+			Debug.Log (rb2D.transform.gameObject.name);
+		} else if (grounded && !isButton) {
 			midInvert = false;
 			rb2D.constraints = RigidbodyConstraints2D.None;
 			rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
 		}
+		else if(grounded && isButton)
+			evenMoreConditionalFreeze (isButton);
 	}
 
 	public void evenMoreConditionalFreeze(bool condition){

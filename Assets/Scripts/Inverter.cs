@@ -28,6 +28,11 @@ public class Inverter : MonoBehaviour {
 		aud.clip.SetData(samples, 0);
 
 	}
+	void ReverseSong(){
+		AudioSource aud = GetComponent<AudioSource> ();
+
+
+	}
 
 	public void Invert(){
 		inverted = !inverted;

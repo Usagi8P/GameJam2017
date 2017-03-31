@@ -12,6 +12,7 @@ TagManager:
   - GOD
   - Switch
   - Switched
+  - PlayerFoot
   layers:
   - Default
   - TransparentFX

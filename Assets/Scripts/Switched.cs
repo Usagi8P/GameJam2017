@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class switched : MonoBehaviour {
+public class Switched : MonoBehaviour {
 	public bool isOn = false;
 	// Use this for initialization
 	void Start () {

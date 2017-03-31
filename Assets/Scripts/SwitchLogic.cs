@@ -7,6 +7,8 @@ public class SwitchLogic : MonoBehaviour {
 	// Use this for initialization
 	Animator playeranim;
 	Animator switchanim;
+
+
 	void Awake() {
 		playeranim = GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ();
 		switchanim = GetComponent<Animator> ();
@@ -18,5 +20,15 @@ public class SwitchLogic : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	void OnTriggerEnter2D(Collider2D collision){
+		if (collision.gameObject.CompareTag ("PlayerFoot")) {
+			GameObject.FindGameObjectWithTag ("GOD").GetComponent<Switcher>().Switch();
+			switchanim.SetTrigger ("On");
+			playeranim.SetTrigger ("TurnOn");
+
+		}
+
 	}
 }

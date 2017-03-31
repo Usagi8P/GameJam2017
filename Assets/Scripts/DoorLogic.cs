@@ -27,7 +27,7 @@ public class DoorLogic : MonoBehaviour {
 		
 	// Update is called once per frame
 	void Update () {
-		isOpen = GetComponentInChildren<switched> ().isOn;
+		isOpen = GetComponentInChildren<Switched> ().isOn;
 		if (isOpen)
 			anim.SetTrigger ("Open");			
 	}

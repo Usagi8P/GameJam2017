@@ -8,7 +8,10 @@ public class playerHit : MonoBehaviour {
 	Animator anim;
 	bool isDead = false;
 	Animation death;
+	public AudioClip deathClip;
 	float deathTime = 0;
+
+
 	// Use this for initialization
 	void Awake () {
 		anim = GetComponent<Animator> ();

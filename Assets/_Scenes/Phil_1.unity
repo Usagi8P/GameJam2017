@@ -1209,6 +1209,21 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 842434453}
+    - target: {fileID: 20436510142256514, guid: 8ae0aa3b66c6d71459f07c8ab8809513,
+        type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20436510142256514, guid: 8ae0aa3b66c6d71459f07c8ab8809513,
+        type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20436510142256514, guid: 8ae0aa3b66c6d71459f07c8ab8809513,
+        type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ae0aa3b66c6d71459f07c8ab8809513, type: 2}
   m_IsPrefabParent: 0
@@ -3298,15 +3313,15 @@ Transform:
   - {fileID: 435101669}
   - {fileID: 322212613}
   - {fileID: 639018503}
+  - {fileID: 1266744329}
   - {fileID: 1790605286}
   - {fileID: 1449887562}
   - {fileID: 824215287}
-  - {fileID: 1266744329}
-  - {fileID: 701675495}
-  - {fileID: 1547675778}
-  - {fileID: 122362405}
   - {fileID: 1259718688}
+  - {fileID: 122362405}
+  - {fileID: 701675495}
   - {fileID: 2031920407}
+  - {fileID: 1547675778}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

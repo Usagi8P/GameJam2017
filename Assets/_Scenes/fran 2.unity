@@ -973,8 +973,8 @@ Prefab:
       propertyPath: deathClip
       value: 
       objectReference: {fileID: 8300000, guid: 1eb43d789b575f047bbd8bda8f3d3b36, type: 3}
-    m_RemovedComponents: [{fileID: 114299750328961604, guid: b0ac1266320afc14aac87c86aea0afbc,
-        type: 2}]
+    m_RemovedComponents:
+    - {fileID: 114299750328961604, guid: b0ac1266320afc14aac87c86aea0afbc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b0ac1266320afc14aac87c86aea0afbc, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &37934654
@@ -38687,6 +38687,21 @@ Prefab:
     - target: {fileID: 4407517952584706, guid: 8ae0aa3b66c6d71459f07c8ab8809513, type: 2}
       propertyPath: m_LocalScale.y
       value: 1.0125
+      objectReference: {fileID: 0}
+    - target: {fileID: 20436510142256514, guid: 8ae0aa3b66c6d71459f07c8ab8809513,
+        type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20436510142256514, guid: 8ae0aa3b66c6d71459f07c8ab8809513,
+        type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20436510142256514, guid: 8ae0aa3b66c6d71459f07c8ab8809513,
+        type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ae0aa3b66c6d71459f07c8ab8809513, type: 2}

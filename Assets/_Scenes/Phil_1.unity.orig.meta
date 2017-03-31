@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/_Scenes/Phil_1.unity.orig.meta
+guid: eb76d040ed4cf8a4186b5d936948e193
+timeCreated: 1490971326
+=======
 guid: 88d5dfbe0eb60cc4fab4144a7b1eaf06
 timeCreated: 1490967549
+>>>>>>> origin/master:Assets/_Scenes/Phil_1.unity.orig.meta
 licenseType: Free
 DefaultImporter:
   userData: 

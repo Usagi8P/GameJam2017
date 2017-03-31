@@ -53,7 +53,9 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetButtonDown (invertkey)){
+			midInvert = true;
 			inverting = true;
+			grounded = false;
 		}
 		if (Input.GetButton (jumpkey) && grounded)
 			isJump = true;
@@ -70,7 +72,6 @@ public class PlayerController : MonoBehaviour {
 			Jump (jumpHeight);
 		}
 		if (inverting) {
-			midInvert = true;
 			GameObject.FindGameObjectWithTag("GOD").GetComponent<Inverter>().Invert ();
 		}
 
@@ -109,8 +110,10 @@ public class PlayerController : MonoBehaviour {
 
 	void conditionalFreeze(){
 		//BAD FUNCTION THAT FREEZES BASED ON A BUNCH OF GLOBAL VARS AAA
+		Debug.Log(midInvert);
 		if (!grounded && midInvert) {
 			rb2D.constraints = RigidbodyConstraints2D.FreezePositionX;
+			moveX = 0;
 
 		} else if (grounded) {
 			midInvert = false;

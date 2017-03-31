@@ -10,6 +10,7 @@ TagManager:
   - Bad
   - Floor
   - GOD
+  - Switch
   layers:
   - Default
   - TransparentFX
